@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+%matplotlib inline
+from sklearn.datasets import load_digits
+from sklearn import datasets
+digits = load_digits()
+digits = datasets.load_digits()
+X = digits.data
+y = digits.target
+print X.shape
+print y.shape
+print digits.DESCR[:500]
+fig, ax = plt.subplots(5,4, sharex=True, sharey=True)
+for r in range(5):
+    for c in range(4):
+        ax[r,c].imshow(X[r*4+c].reshape(8,8), cmap=plt.cm.gray_r)
+fig.show()
